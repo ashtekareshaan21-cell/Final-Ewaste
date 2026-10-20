@@ -1,0 +1,19 @@
+{
+  "name": "green-campus-challenge-ewaste",
+  "version": "1.0.0",
+  "description": "Green Campus Challenge — Interdepartmental E-Waste Recycling Platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "ewaste",
+    "sustainability",
+    "campus-recycling",
+    "green-campus",
+    "leaderboard",
+    "gamification"
+  ],
+  "author": "Eshaan Ashtekar",
+  "license": "MIT"
+}

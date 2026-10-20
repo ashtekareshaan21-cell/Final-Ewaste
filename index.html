@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Campus Challenge ♻️ — Interdepartmental E-Waste Recycling</title>
+  <meta name="description" content="An interdepartmental e-waste recycling competition platform for college campus sustainability. Compete on the leaderboard, earn points, and unlock achievement badges.">
+  
+  <!-- Google Fonts: Poppins for headings & body, JetBrains Mono for monospace badges and stats -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-link" aria-label="Green Campus Challenge Home">
+        <div class="brand-icon-wrapper">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"></path>
+            <path d="M11 19h8.2a1.8 1.8 0 0 0 1.55-.89 1.8 1.8 0 0 0 0-1.77L16.8 9.5"></path>
+            <path d="M12.5 3a1.8 1.8 0 0 0-1.54.89l-4.7 8.11h9.48l-1.7-2.95"></path>
+            <path d="m11 15-3 4-3-4"></path>
+            <path d="m8.5 7.5 3-4 3 4"></path>
+            <path d="m19 15-3 4-3-4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Green Campus</span>
+          <span class="brand-subtitle">CHALLENGE</span>
+        </div>
+      </a>
+
+      <!-- Center Nav Links -->
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="#leaderboard-section" class="nav-link active" data-section="leaderboard-section">Leaderboard</a>
+        <a href="#impact-section" class="nav-link" data-section="impact-section">Eco Impact</a>
+        <a href="#student-portal-section" class="nav-link" data-section="student-portal-section">PRN Portal</a>
+        <a href="#badges-section" class="nav-link" data-section="badges-section">Badges</a>
+        <a href="#stations-section" class="nav-link" data-section="stations-section">Bin Stations</a>
+        <a href="#activity-section" class="nav-link" data-section="activity-section">Activity</a>
+      </nav>
+
+      <!-- Right Actions: Sound Toggle + Counter Badge + Log E-Waste Button -->
+      <div class="nav-actions">
+        <button type="button" class="btn-icon-toggle" id="audioToggleBtn" title="Toggle Sound Feedback" aria-label="Toggle Sound Effects">
+          <svg class="audio-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="audio-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <div class="live-counter-pill" id="navCounterPill" title="Total devices collected campus-wide">
+          <span class="live-indicator-dot"></span>
+          <span class="counter-text" id="navDeviceCount">144 DEVICES</span>
+        </div>
+        <button type="button" class="btn btn-primary" id="openLogModalBtn" aria-haspopup="dialog" aria-expanded="false">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Log E-Waste</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Eyebrow & Subtitle -->
+      <div class="hero-intro">
+        <div class="section-eyebrow">
+          <span class="eyebrow-text">INTERDEPARTMENTAL E-WASTE CHALLENGE</span>
+        </div>
+        <h1 class="hero-tagline">
+          Bring your old electronics to the campus bin, log the drop-off, and push your department up the board.
+        </h1>
+      </div>
+
+      <!-- Hero Two-Column Grid -->
+      <div class="hero-grid">
+
+        <!-- Left: Green Champion of the Month Card -->
+        <article class="champion-card" id="championCard">
+          <div class="champion-bg-overlay"></div>
+          <div class="champion-content">
+            
+            <div class="champion-header">
+              <div class="champion-meta">
+                <span class="champion-eyebrow">GREEN CHAMPION OF THE MONTH</span>
+                <span class="champion-month" id="championMonth">October 2026</span>
+              </div>
+              <div class="trophy-badge" title="Campus Leader Trophy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="champion-body">
+              <div class="champion-rank-badge" id="championRankBadge">
+                <span class="crown-icon">👑</span>
+                <span class="rank-tag" id="championRankText">RANK #1 · COMP</span>
+              </div>
+              <h2 class="champion-name" id="championDeptName">Computer Engineering</h2>
+              <div class="champion-points-wrapper">
+                <span class="champion-points-val" id="championPoints">450</span>
+                <span class="champion-points-unit">POINTS</span>
+              </div>
+              <p class="champion-quote" id="championQuote">Leading the campus toward a greener future.</p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Right: Campus Recycling Goal Card -->
+        <article class="goal-card" id="goalCard">
+          
+          <div class="goal-header">
+            <span class="goal-eyebrow">CAMPUS RECYCLING GOAL</span>
+            <div class="goal-target-icon" title="Sustainability Target">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+          </div>
+
+          <div class="goal-metric">
+            <div class="goal-metric-number">
+              <span class="goal-percentage" id="goalPercent">29%</span>
+              <span class="goal-ratio" id="goalRatio">of 500 devices</span>
+            </div>
+            
+            <div class="progress-bar-track" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" id="goalProgressBar">
+              <div class="progress-bar-fill" id="goalProgressFill" style="width: 29%;"></div>
+            </div>
+
+            <p class="goal-remaining-text" id="goalRemaining">356 more devices to reach the goal.</p>
+          </div>
+
+          <!-- 3 Compact Stat Cards Underneath -->
+          <div class="stat-cards-grid">
+            
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="color: #087F45;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                  <path d="M9 3v18"></path>
+                  <path d="M15 3v18"></path>
+                  <path d="M3 9h18"></path>
+                  <path d="M3 15h18"></path>
+                </svg>
+              </div>
+              <div class="stat-data">
+                <span class="stat-number" id="statTotalDevices">144</span>
+                <span class="stat-label">Total Devices</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="color: #087F45;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="stat-data">
+                <span class="stat-number" id="statTotalPoints">1,440</span>
+                <span class="stat-label">Total Points</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="color: #087F45;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                  <path d="M10 6h4"></path>
+                  <path d="M10 10h4"></path>
+                  <path d="M10 14h4"></path>
+                  <path d="M10 18h4"></path>
+                </svg>
+              </div>
+              <div class="stat-data">
+                <span class="stat-number" id="statTotalDepts">6</span>
+                <span class="stat-label">Departments</span>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Leaderboard & Points Guide Section -->
+    <section class="section-container" id="leaderboard-section">
+      <div class="leaderboard-layout">
+        
+        <!-- Left: Leaderboard Card -->
+        <div class="leaderboard-card">
+          
+          <div class="card-header-bar">
+            <div>
+              <div class="card-eyebrow">
+                <span class="dot-indicator"></span>
+                <span>LIVE STANDINGS</span>
+              </div>
+              <h2 class="card-title" id="leaderboardTitle">Department Leaderboard</h2>
+            </div>
+
+            <!-- View Toggle Tabs: Departments vs Inter-Division Cup -->
+            <div class="leaderboard-tabs" role="tablist" aria-label="Leaderboard View">
+              <button type="button" class="lb-tab-btn active" id="tabDepts" role="tab" aria-selected="true">
+                <span>Departments</span>
+              </button>
+              <button type="button" class="lb-tab-btn" id="tabDivisions" role="tab" aria-selected="false">
+                <span>Inter-Division Cup 🏆</span>
+              </button>
+            </div>
+            
+            <!-- Search Box -->
+            <div class="search-box-wrapper">
+              <div class="search-input-group">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input 
+                  type="text" 
+                  id="deptSearchInput" 
+                  class="search-input" 
+                  placeholder="Search department or division..." 
+                  aria-label="Search departments or divisions"
+                  autocomplete="off"
+                >
+                <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" style="display: none;">
+                  &times;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Responsive Table Container -->
+          <div class="table-container" tabindex="0" aria-label="Leaderboard table">
+            <table class="leaderboard-table" id="leaderboardTable">
+              <thead>
+                <tr>
+                  <th scope="col" class="th-rank">Rank</th>
+                  <th scope="col" class="th-dept">Department</th>
+                  <th scope="col" class="th-items">Items</th>
+                  <th scope="col" class="th-points">Points</th>
+                  <th scope="col" class="th-badges">Badges</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardTbody">
+                <!-- Populated dynamically via script.js -->
+              </tbody>
+            </table>
+
+            <!-- Empty Search State -->
+            <div class="table-empty-state" id="tableEmptyState" style="display: none;">
+              <div class="empty-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+              <p class="empty-msg-title">No departments found</p>
+              <p class="empty-msg-desc">No department matches your search query. Try searching for "Engineering" or "Biotechnology".</p>
+              <button type="button" class="btn btn-secondary btn-sm" id="resetSearchBtn">Clear Search</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Points Guide Card -->
+        <aside class="points-guide-card">
+          <div class="guide-header">
+            <span class="guide-eyebrow">SCORING RULES</span>
+            <h3 class="guide-title">POINTS GUIDE</h3>
+          </div>
+
+          <div class="guide-rows-list">
+            
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="12" x="3" y="4" rx="2"></rect>
+                  <line x1="2" x2="22" y1="20" y2="20"></line>
+                </svg>
+                <span class="device-name">Laptop / Desktop</span>
+              </div>
+              <div class="device-pts-tag">20 pts</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                  <line x1="8" x2="16" y1="21" y2="21"></line>
+                  <line x1="12" x2="12" y1="17" y2="21"></line>
+                </svg>
+                <span class="device-name">Monitor / TV</span>
+              </div>
+              <div class="device-pts-tag">15 pts</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="20" x="5" y="2" rx="2"></rect>
+                  <line x1="12" x2="12.01" y1="18" y2="18"></line>
+                </svg>
+                <span class="device-name">Phone / Tablet</span>
+              </div>
+              <div class="device-pts-tag">10 pts</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                  <circle cx="6" cy="12" r="1"></circle>
+                  <circle cx="10" cy="12" r="1"></circle>
+                  <circle cx="14" cy="12" r="1"></circle>
+                  <circle cx="18" cy="12" r="1"></circle>
+                </svg>
+                <span class="device-name">Peripherals</span>
+              </div>
+              <div class="device-pts-tag">5 pts</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="16" height="10" x="2" y="7" rx="2"></rect>
+                  <line x1="22" x2="22" y1="11" y2="13"></line>
+                </svg>
+                <span class="device-name">Batteries</span>
+              </div>
+              <div class="device-pts-tag">5 pts</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-device-info">
+                <svg class="device-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v6"></path>
+                  <path d="m4.93 10.93 4.24 4.24"></path>
+                  <path d="M2 12h6"></path>
+                  <path d="M14 18h6"></path>
+                  <path d="M12 22v-6"></path>
+                </svg>
+                <span class="device-name">Cables / Chargers</span>
+              </div>
+              <div class="device-pts-tag">2 pts</div>
+            </div>
+
+          </div>
+
+          <button type="button" class="btn btn-yellow w-full" id="guideLogBtn">
+            <span>Log a drop-off</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- Environmental Impact & Equivalency Dashboard -->
+    <section class="section-container" id="impact-section">
+      <div class="impact-card">
+        
+        <div class="section-header-row">
+          <div>
+            <div class="card-eyebrow">
+              <span class="dot-indicator"></span>
+              <span>ECOLOGICAL TRANSLATION</span>
+            </div>
+            <h2 class="card-title">Campus Environmental Impact</h2>
+          </div>
+          <p class="section-subtitle">
+            Every recycled device diverts hazardous heavy metals and conserves raw materials. Here is our real-time footprint savings.
+          </p>
+        </div>
+
+        <!-- 4 Impact Metric Cards -->
+        <div class="impact-grid">
+          
+          <div class="impact-stat-card">
+            <div class="impact-icon-wrap icon-co2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v8"></path>
+                <path d="m4.93 10.93 4.24 4.24"></path>
+                <path d="M2 12h8"></path>
+                <path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"></path>
+              </svg>
+            </div>
+            <div class="impact-data">
+              <span class="impact-number" id="impactCo2">1,842 kg</span>
+              <span class="impact-title">CO₂ Emissions Prevented</span>
+              <p class="impact-desc">Equivalent to taking 4 gasoline cars off campus roads for a month.</p>
+            </div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-icon-wrap icon-energy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="impact-data">
+              <span class="impact-number" id="impactEnergy">11,250 kWh</span>
+              <span class="impact-title">Clean Energy Conserved</span>
+              <p class="impact-desc">Powers standard campus LED dorm lighting for over 180 days.</p>
+            </div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-icon-wrap icon-toxic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31"></path>
+                <path d="M14 9.3V1.99"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                <path d="M5.52 16h12.96"></path>
+              </svg>
+            </div>
+            <div class="impact-data">
+              <span class="impact-number" id="impactToxics">38.4 kg</span>
+              <span class="impact-title">Toxic Metals Diverted</span>
+              <p class="impact-desc">Lead, mercury, and cadmium safely prevented from entering groundwater.</p>
+            </div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-icon-wrap icon-metals">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8"></circle>
+                <line x1="12" y1="2" x2="12" y2="4"></line>
+                <line x1="12" y1="20" x2="12" y2="22"></line>
+                <line x1="2" y1="12" x2="4" y2="12"></line>
+                <line x1="20" y1="12" x2="22" y2="12"></line>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <div class="impact-data">
+              <span class="impact-number" id="impactPrecious">480 g</span>
+              <span class="impact-title">Precious Metals Recovered</span>
+              <p class="impact-desc">High-grade gold, silver, and refined copper returned to circular manufacturing.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Impact Simulator Box -->
+        <div class="simulator-box">
+          <div class="simulator-header">
+            <div class="sim-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+              <span>INTERACTIVE CALCULATOR</span>
+            </div>
+            <h3 class="simulator-title">Simulate Your Recycling Footprint</h3>
+            <p class="simulator-subtitle">Select an item and quantity to see your exact environmental savings before you drop it off:</p>
+          </div>
+
+          <div class="simulator-controls">
+            <div class="sim-input-group">
+              <label for="simDeviceSelect">Device Type</label>
+              <select id="simDeviceSelect" class="form-select">
+                <option value="Laptop / Desktop" selected>Laptop / Desktop</option>
+                <option value="Monitor / TV">Monitor / TV</option>
+                <option value="Phone / Tablet">Phone / Tablet</option>
+                <option value="Peripherals">Peripherals</option>
+                <option value="Batteries">Batteries</option>
+                <option value="Cables / Chargers">Cables / Chargers</option>
+              </select>
+            </div>
+
+            <div class="sim-input-group">
+              <label for="simQuantityInput">Quantity</label>
+              <input type="number" id="simQuantityInput" class="form-input text-center" value="2" min="1" max="50">
+            </div>
+
+            <div class="sim-results-cards">
+              <div class="sim-result-item">
+                <span class="sim-res-val" id="simCo2Val">30.4 kg</span>
+                <span class="sim-res-lbl">CO₂ Saved</span>
+              </div>
+              <div class="sim-result-item">
+                <span class="sim-res-val" id="simEnergyVal">180 kWh</span>
+                <span class="sim-res-lbl">Energy Conserved</span>
+              </div>
+              <div class="sim-result-item">
+                <span class="sim-res-val" id="simPointsVal">+40 pts</span>
+                <span class="sim-res-lbl">Department Points</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Student PRN Verification & Certificate Portal Section -->
+    <section class="section-container" id="student-portal-section">
+      <div class="portal-card">
+        
+        <div class="section-header-row">
+          <div>
+            <div class="card-eyebrow">
+              <span class="dot-indicator"></span>
+              <span>VERIFICATION & CREDENTIALS</span>
+            </div>
+            <h2 class="card-title">Student PRN Verification Portal</h2>
+          </div>
+          <p class="section-subtitle">
+            Look up any registered college student's e-waste recycling records, division score, and instantly view or reprint verified certificates of environmental stewardship.
+          </p>
+        </div>
+
+        <div class="portal-search-bar">
+          <div class="portal-input-wrap">
+            <svg class="portal-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="portalSearchInput" 
+              class="portal-input" 
+              placeholder="Search by Student PRN (e.g. 2024COMP1042) or Student Name..." 
+              autocomplete="off"
+            >
+            <button type="button" class="btn btn-primary" id="portalSearchBtn">
+              <span>Verify Records</span>
+            </button>
+          </div>
+          <div class="portal-quick-tags">
+            <span class="quick-tag-label">Quick sample PRNs:</span>
+            <button type="button" class="quick-prn-pill" data-prn="2024COMP1042">2024COMP1042 (Priya · COMP-B)</button>
+            <button type="button" class="quick-prn-pill" data-prn="2024IT1089">2024IT1089 (Rahul · IT-A)</button>
+            <button type="button" class="quick-prn-pill" data-prn="2024EXTC1015">2024EXTC1015 (Ananya · EXTC-A)</button>
+          </div>
+        </div>
+
+        <!-- Portal Dynamic Results Area -->
+        <div class="portal-results-area" id="portalResultsArea">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Campus Zero-Landfill Student Pledge Banner -->
+        <div class="pledge-banner-box">
+          <div class="pledge-left">
+            <div class="pledge-icon-circle">🌱</div>
+            <div>
+              <h4 class="pledge-title">Take the Campus Zero-Landfill E-Waste Pledge</h4>
+              <p class="pledge-desc">Commit to never dumping old batteries or electronics into ordinary trash. Join <strong><span id="pledgeCount">284</span> campus students</strong> who signed.</p>
+            </div>
+          </div>
+          <div class="pledge-right">
+            <button type="button" class="btn btn-secondary" id="openPledgeModalBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+              <span>Sign Pledge with PRN</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Achievement Badges Section -->
+    <section class="section-container" id="badges-section">
+      <div class="section-header-row">
+        <div>
+          <div class="card-eyebrow">
+            <span class="dot-indicator"></span>
+            <span>CAMPUS MILESTONES</span>
+          </div>
+          <h2 class="card-title">Badge Tiers</h2>
+        </div>
+        <p class="section-subtitle">
+          Departments unlock official sustainability milestones upon passing cumulative point thresholds.
+        </p>
+      </div>
+
+      <!-- Badges 3-Card Grid -->
+      <div class="badges-grid" id="badgesGrid">
+        
+        <!-- Badge 1: Green Starter -->
+        <div class="badge-tier-card badge-tier-starter" id="badgeCardStarter">
+          <div class="badge-tier-top">
+            <div class="badge-icon-box bg-starter">
+              <!-- Sprout Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 20h10"></path>
+                <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4.1 5.5.8z"></path>
+                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"></path>
+              </svg>
+            </div>
+            <div class="badge-info-header">
+              <span class="badge-points-req">100+ pts</span>
+              <h3 class="badge-name">Green Starter</h3>
+            </div>
+          </div>
+          <p class="badge-desc">Your first 100 points of responsible recycling.</p>
+          <div class="badge-status-box" id="starterUnlockedList">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Badge 2: Recycling Hero -->
+        <div class="badge-tier-card badge-tier-hero" id="badgeCardHero">
+          <div class="badge-tier-top">
+            <div class="badge-icon-box bg-hero">
+              <!-- Recycling Loop Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"></path>
+                <path d="M11 19h8.2a1.8 1.8 0 0 0 1.55-.89 1.8 1.8 0 0 0 0-1.77L16.8 9.5"></path>
+                <path d="M12.5 3a1.8 1.8 0 0 0-1.54.89l-4.7 8.11h9.48l-1.7-2.95"></path>
+              </svg>
+            </div>
+            <div class="badge-info-header">
+              <span class="badge-points-req">300+ pts</span>
+              <h3 class="badge-name">Recycling Hero</h3>
+            </div>
+          </div>
+          <p class="badge-desc">300+ points — a department that consistently shows up.</p>
+          <div class="badge-status-box" id="heroUnlockedList">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Badge 3: E-Waste Champion -->
+        <div class="badge-tier-card badge-tier-champion" id="badgeCardChampion">
+          <div class="badge-tier-top">
+            <div class="badge-icon-box bg-champion">
+              <!-- Trophy Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+              </svg>
+            </div>
+            <div class="badge-info-header">
+              <span class="badge-points-req">500+ pts</span>
+              <h3 class="badge-name">E-Waste Champion</h3>
+            </div>
+          </div>
+          <p class="badge-desc">500+ points — the campus gold standard.</p>
+          <div class="badge-status-box" id="championUnlockedList">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Campus Bin Stations Section -->
+    <section class="section-container" id="stations-section">
+      <div class="stations-card">
+        
+        <div class="section-header-row">
+          <div>
+            <div class="card-eyebrow">
+              <span class="dot-indicator"></span>
+              <span>CAMPUS NETWORK</span>
+            </div>
+            <h2 class="card-title">Drop-Off Bin Stations</h2>
+          </div>
+          <p class="section-subtitle">
+            Find your closest campus e-waste receptacle, verify its accepted device types, and check live bin capacity.
+          </p>
+        </div>
+
+        <div class="stations-grid" id="stationsGrid">
+          
+          <!-- Station 1 -->
+          <div class="station-item-card">
+            <div class="station-top">
+              <span class="station-status-pill status-open">● Open Now</span>
+              <span class="station-hours">8:00 AM – 6:00 PM</span>
+            </div>
+            <h3 class="station-name">Main Building Atrium</h3>
+            <p class="station-location">Ground Floor Central Lobby, beside Dean's Quad</p>
+            
+            <div class="station-capacity-box">
+              <div class="capacity-label-row">
+                <span>Current Bin Capacity</span>
+                <strong>68% Full</strong>
+              </div>
+              <div class="capacity-track">
+                <div class="capacity-fill fill-normal" style="width: 68%;"></div>
+              </div>
+            </div>
+
+            <div class="station-accepted-tags">
+              <span class="tag">Laptops</span>
+              <span class="tag">Phones</span>
+              <span class="tag">Batteries</span>
+              <span class="tag">Cables</span>
+            </div>
+          </div>
+
+          <!-- Station 2 -->
+          <div class="station-item-card">
+            <div class="station-top">
+              <span class="station-status-pill status-open">● Open Now</span>
+              <span class="station-hours">9:00 AM – 5:00 PM</span>
+            </div>
+            <h3 class="station-name">Engineering Hardware Lab</h3>
+            <p class="station-location">Block B, 2nd Floor, Electronics Workshop</p>
+            
+            <div class="station-capacity-box">
+              <div class="capacity-label-row">
+                <span>Current Bin Capacity</span>
+                <strong>42% Full</strong>
+              </div>
+              <div class="capacity-track">
+                <div class="capacity-fill fill-normal" style="width: 42%;"></div>
+              </div>
+            </div>
+
+            <div class="station-accepted-tags">
+              <span class="tag">PC Towers</span>
+              <span class="tag">Monitors</span>
+              <span class="tag">Peripherals</span>
+              <span class="tag">Cables</span>
+            </div>
+          </div>
+
+          <!-- Station 3 -->
+          <div class="station-item-card">
+            <div class="station-top">
+              <span class="station-status-pill status-247">● 24/7 Smart Bin</span>
+              <span class="station-hours">Round the clock</span>
+            </div>
+            <h3 class="station-name">Student Union Center</h3>
+            <p class="station-location">Level 1 Commons, opposite Campus Bookstore</p>
+            
+            <div class="station-capacity-box">
+              <div class="capacity-label-row">
+                <span>Current Bin Capacity</span>
+                <strong style="color: #D97706;">84% Full (Pickup Soon)</strong>
+              </div>
+              <div class="capacity-track">
+                <div class="capacity-fill fill-warning" style="width: 84%;"></div>
+              </div>
+            </div>
+
+            <div class="station-accepted-tags">
+              <span class="tag">Phones</span>
+              <span class="tag">Tablets</span>
+              <span class="tag">Chargers</span>
+              <span class="tag">Small Tech</span>
+            </div>
+          </div>
+
+          <!-- Station 4 -->
+          <div class="station-item-card">
+            <div class="station-top">
+              <span class="station-status-pill status-open">● Open Now</span>
+              <span class="station-hours">8:30 AM – 7:00 PM</span>
+            </div>
+            <h3 class="station-name">Life Sciences & Biotech Wing</h3>
+            <p class="station-location">Bio Complex West, Main Entrance Foyer</p>
+            
+            <div class="station-capacity-box">
+              <div class="capacity-label-row">
+                <span>Current Bin Capacity</span>
+                <strong>25% Full</strong>
+              </div>
+              <div class="capacity-track">
+                <div class="capacity-fill fill-normal" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <div class="station-accepted-tags">
+              <span class="tag">All Devices</span>
+              <span class="tag">Batteries</span>
+              <span class="tag">Lab Gear</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Eco-Quiz Challenge Card -->
+    <section class="section-container" id="quiz-section">
+      <div class="quiz-card">
+        <div class="quiz-inner-grid">
+          
+          <div class="quiz-left">
+            <div class="card-eyebrow">
+              <span class="dot-indicator"></span>
+              <span>DAILY BONUS CHALLENGE</span>
+            </div>
+            <h2 class="card-title">Eco-Knowledge Trivia</h2>
+            <p class="quiz-desc">
+              Test your e-waste recycling expertise! Answer correctly to win <strong style="color: #087F45;">+10 bonus points</strong> for your department.
+            </p>
+
+            <div class="quiz-dept-selector">
+              <label for="quizDeptSelect" class="form-label">Award bonus points to:</label>
+              <select id="quizDeptSelect" class="form-select">
+                <option value="comp">Computer Engineering</option>
+                <option value="it">IT Engineering</option>
+                <option value="extc">Electronics Engineering</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="biotech">Biotechnology</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="quiz-right" id="quizContainer">
+            <div class="quiz-question-box">
+              <span class="quiz-q-num" id="quizQNumber">QUESTION OF THE DAY</span>
+              <h3 class="quiz-question-text" id="quizQuestionText">Why is recycling smartphone lithium batteries critical?</h3>
+              
+              <div class="quiz-options-list" id="quizOptionsList">
+                <!-- Injected via JS -->
+              </div>
+
+              <div class="quiz-result-message" id="quizResultMsg" style="display: none;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Feed Section -->
+    <section class="section-container" id="activity-section">
+      <div class="activity-card">
+        
+        <div class="card-header-bar">
+          <div>
+            <div class="card-eyebrow">
+              <span class="dot-indicator"></span>
+              <span>RECENT DROP-OFFS</span>
+            </div>
+            <h2 class="card-title">Activity feed</h2>
+          </div>
+          
+          <!-- Controls: Dept Filter + Division Filter + Export CSV + Counter Badge -->
+          <div class="activity-controls-bar">
+            <div class="filter-select-wrap">
+              <select id="activityDeptFilter" class="form-select filter-select" aria-label="Filter activity by department">
+                <option value="all">All Departments</option>
+                <option value="comp">Computer Engineering</option>
+                <option value="it">IT Engineering</option>
+                <option value="extc">Electronics Engineering</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="biotech">Biotechnology</option>
+              </select>
+            </div>
+
+            <div class="filter-select-wrap">
+              <select id="activityDivisionFilter" class="form-select filter-select" aria-label="Filter activity by division">
+                <option value="all">All Divisions</option>
+                <option value="Div A">Division A</option>
+                <option value="Div B">Division B</option>
+                <option value="Div C">Division C</option>
+                <option value="Div D">Division D</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-secondary btn-sm" id="exportCsvBtn" title="Export collection records to CSV">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 15px; height: 15px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Export CSV</span>
+            </button>
+
+            <span class="activity-count-badge" id="activityCountLabel">0 recorded</span>
+          </div>
+        </div>
+
+        <!-- Activity Feed List -->
+        <div class="activity-list" id="activityList">
+          <!-- Populated dynamically via script.js -->
+        </div>
+
+        <!-- Clean Empty State (Matches Screenshot 1) -->
+        <div class="activity-empty-state" id="activityEmptyState" style="display: none;">
+          <p class="activity-empty-text">
+            No logged submissions yet. Use "Log E-Waste" to record the first drop-off.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Drop-Off Modal (Matches Screenshot 2) -->
+  <div class="modal-backdrop" id="logModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal-dialog">
+      
+      <!-- Close Button -->
+      <button type="button" class="modal-close-btn" id="closeModalBtn" aria-label="Close drop-off dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Log an e-waste drop-off</h3>
+        <p class="modal-subtitle">Every responsibly recycled device earns points for your department.</p>
+      </div>
+
+      <!-- Modal Form -->
+      <form id="dropOffForm" novalidate>
+        
+        <!-- Row 1: Your Name & PRN -->
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="studentName" class="form-label">Your name</label>
+            <input 
+              type="text" 
+              id="studentName" 
+              name="studentName" 
+              class="form-input" 
+              placeholder="e.g. Priya Sharma" 
+              required
+              autocomplete="name"
+            >
+            <span class="form-error-msg" id="nameError" style="display: none;">Please enter your name.</span>
+          </div>
+
+          <div class="form-group flex-1">
+            <label for="studentPrn" class="form-label">Student PRN</label>
+            <input 
+              type="text" 
+              id="studentPrn" 
+              name="studentPrn" 
+              class="form-input" 
+              placeholder="e.g. 2024COMP1042" 
+              required
+              autocomplete="off"
+              style="text-transform: uppercase;"
+            >
+            <span class="form-error-msg" id="prnError" style="display: none;">Enter college PRN.</span>
+          </div>
+        </div>
+
+        <!-- Row 2: Department & Division -->
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="deptSelect" class="form-label">Department</label>
+            <div class="select-wrapper">
+              <select id="deptSelect" name="deptSelect" class="form-select" required>
+                <option value="" disabled selected>Choose department</option>
+                <option value="comp">Computer Engineering</option>
+                <option value="it">IT Engineering</option>
+                <option value="extc">Electronics Engineering</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="biotech">Biotechnology</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <span class="form-error-msg" id="deptError" style="display: none;">Please select your department.</span>
+          </div>
+
+          <div class="form-group flex-1">
+            <label for="divisionSelect" class="form-label">Division</label>
+            <div class="select-wrapper">
+              <select id="divisionSelect" name="divisionSelect" class="form-select" required>
+                <option value="" disabled selected>Choose division</option>
+                <option value="Div A">Division A</option>
+                <option value="Div B">Division B</option>
+                <option value="Div C">Division C</option>
+                <option value="Div D">Division D</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <span class="form-error-msg" id="divisionError" style="display: none;">Select division.</span>
+          </div>
+        </div>
+
+        <!-- Row 3: Device type + Quantity -->
+        <div class="form-row">
+          
+          <!-- Field 5: Device Type -->
+          <div class="form-group flex-2">
+            <label for="deviceSelect" class="form-label">Device type</label>
+            <div class="select-wrapper">
+              <select id="deviceSelect" name="deviceSelect" class="form-select" required>
+                <option value="" disabled selected>Choose device</option>
+                <option value="Laptop / Desktop">Laptop / Desktop (20 pts)</option>
+                <option value="Monitor / TV">Monitor / TV (15 pts)</option>
+                <option value="Phone / Tablet">Phone / Tablet (10 pts)</option>
+                <option value="Peripherals">Peripherals (5 pts)</option>
+                <option value="Batteries">Batteries (5 pts)</option>
+                <option value="Cables / Chargers">Cables / Chargers (2 pts)</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <span class="form-error-msg" id="deviceError" style="display: none;">Please choose a device category.</span>
+          </div>
+
+          <!-- Field 4: Quantity -->
+          <div class="form-group flex-1">
+            <label for="quantityInput" class="form-label">Quantity</label>
+            <input 
+              type="number" 
+              id="quantityInput" 
+              name="quantityInput" 
+              class="form-input text-center" 
+              value="1" 
+              min="1" 
+              step="1" 
+              required
+            >
+            <span class="form-error-msg" id="quantityError" style="display: none;">Min 1.</span>
+          </div>
+
+        </div>
+
+        <!-- Live Points Preview Banner (Matches Screenshot 2) -->
+        <div class="points-preview-box">
+          <div class="preview-left">
+            <svg class="preview-sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+            </svg>
+            <span class="preview-label">POINTS PREVIEW</span>
+          </div>
+          <div class="preview-right">
+            <span class="preview-value" id="modalPreviewPoints">+0</span>
+          </div>
+        </div>
+        
+        <!-- Live Selected Department note under preview if selected -->
+        <div class="preview-subnote" id="previewSubnote" style="display: none;">
+          Points will be awarded to <strong id="previewDeptTargetName">Computer Engineering</strong>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-modal-submit" id="submitDropOffBtn" disabled>
+          <span>Log drop-off</span>
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container (Matches Screenshot 3) -->
+  <div class="toast-portal" id="toastPortal" aria-live="polite" aria-atomic="true">
+    <!-- Toasts injected dynamically -->
+  </div>
+
+  <!-- Department Sustainability Profile Modal -->
+  <div class="modal-backdrop" id="deptProfileModal" role="dialog" aria-modal="true" aria-labelledby="deptModalTitle" style="display: none;">
+    <div class="modal-dialog modal-dialog-lg">
+      <button type="button" class="modal-close-btn" id="closeDeptModalBtn" aria-label="Close department dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="dept-profile-header">
+        <div class="dept-profile-rank-badge" id="deptModalRank">RANK #1</div>
+        <h3 class="dept-profile-title" id="deptModalTitle">Computer Engineering</h3>
+        <p class="dept-profile-subtitle" id="deptModalSubtitle">Leading the campus leaderboard</p>
+      </div>
+
+      <!-- Department Stats Bar -->
+      <div class="dept-stats-row">
+        <div class="dept-stat-box">
+          <span class="val" id="deptModalItems">45</span>
+          <span class="lbl">Items Recycled</span>
+        </div>
+        <div class="dept-stat-box">
+          <span class="val" id="deptModalPoints">450</span>
+          <span class="lbl">Total Points</span>
+        </div>
+        <div class="dept-stat-box">
+          <span class="val" id="deptModalShare">31%</span>
+          <span class="lbl">Campus Share</span>
+        </div>
+      </div>
+
+      <!-- Next Milestone Progress -->
+      <div class="dept-milestone-box">
+        <div class="milestone-text-row">
+          <span class="milestone-title" id="deptModalNextTierTitle">Next: E-Waste Champion (500 pts)</span>
+          <strong class="milestone-pts-left" id="deptModalPtsNeeded">50 pts to unlock</strong>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="deptModalProgressFill" style="width: 90%;"></div>
+        </div>
+      </div>
+
+      <!-- Device Breakdown Distribution -->
+      <div class="dept-breakdown-section">
+        <h4 class="breakdown-heading">Device Collection Breakdown</h4>
+        <div class="breakdown-bars-list" id="deptModalBreakdownList">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Department Unlocked Badges -->
+      <div class="dept-badges-section">
+        <h4 class="breakdown-heading">Unlocked Milestone Badges</h4>
+        <div class="dept-badges-grid" id="deptModalBadgesGrid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <div class="modal-footer-btns">
+        <button type="button" class="btn btn-secondary" id="closeDeptProfileBtn">Close Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Recycling Certificate Modal -->
+  <div class="modal-backdrop" id="certificateModal" role="dialog" aria-modal="true" aria-labelledby="certTitle" style="display: none;">
+    <div class="modal-dialog modal-dialog-lg cert-dialog">
+      <button type="button" class="modal-close-btn" id="closeCertModalBtn" aria-label="Close certificate dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Printable Certificate Content -->
+      <div class="certificate-frame" id="printableCertificate">
+        <div class="cert-border-ornament">
+          
+          <div class="cert-header">
+            <div class="cert-seal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <span class="cert-eyebrow">GREEN CAMPUS SUSTAINABILITY INITIATIVE</span>
+            <h2 class="cert-title" id="certTitle">Certificate of Environmental Stewardship</h2>
+            <p class="cert-subtitle">This official certificate is proudly conferred upon</p>
+          </div>
+
+          <div class="cert-recipient-name" id="certStudentName">Priya Sharma</div>
+          
+          <div class="cert-recipient-creds">
+            <span class="cert-pill" id="certStudentPrn">PRN: 2024COMP1042</span>
+            <span class="cert-pill" id="certStudentDivision">Division B</span>
+          </div>
+
+          <div class="cert-recipient-dept" id="certDeptName">Civil Engineering</div>
+
+          <p class="cert-body-text">
+            For outstanding commitment to campus sustainability and e-waste circularity through the responsible recycling of:
+          </p>
+
+          <div class="cert-achievement-highlight" id="certDeviceDetail">
+            2 × Monitor / TV · +30 Department Points Awarded
+          </div>
+
+          <div class="cert-footer-row">
+            <div class="cert-sig-block">
+              <div class="cert-sig-line"></div>
+              <span class="sig-title">Campus Sustainability Board</span>
+            </div>
+            <div class="cert-meta-block">
+              <div class="cert-hash" id="certVerificationId">ID: GCC-2026-89412</div>
+              <div class="cert-date" id="certDate">October 18, 2026</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cert-actions-bar">
+        <button type="button" class="btn btn-secondary" id="dismissCertBtn">Close</button>
+        <button type="button" class="btn btn-primary" id="printCertBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect width="12" height="8" x="6" y="14"></rect>
+          </svg>
+          <span>Print / Save Certificate</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Student Zero-Landfill Pledge Modal -->
+  <div class="modal-backdrop" id="pledgeModal" role="dialog" aria-modal="true" aria-labelledby="pledgeModalTitle" style="display: none;">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="closePledgeModalBtn" aria-label="Close pledge dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <h3 class="modal-title" id="pledgeModalTitle">Sign the Green Citizen Pledge 🌿</h3>
+        <p class="modal-subtitle">Join the interdepartmental movement for zero e-waste in campus landfills.</p>
+      </div>
+
+      <form id="pledgeForm" novalidate>
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="pledgeStudentName" class="form-label">Full Name</label>
+            <input type="text" id="pledgeStudentName" class="form-input" placeholder="e.g. Priya Sharma" required>
+            <span class="form-error-msg" id="pledgeNameError" style="display: none;">Enter your name.</span>
+          </div>
+          <div class="form-group flex-1">
+            <label for="pledgeStudentPrn" class="form-label">Student PRN</label>
+            <input type="text" id="pledgeStudentPrn" class="form-input" placeholder="e.g. 2024COMP1042" required style="text-transform: uppercase;">
+            <span class="form-error-msg" id="pledgePrnError" style="display: none;">Enter valid PRN.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="pledgeDeptSelect" class="form-label">Department</label>
+            <div class="select-wrapper">
+              <select id="pledgeDeptSelect" class="form-select" required>
+                <option value="" disabled selected>Select Department</option>
+                <option value="comp">Computer Engineering</option>
+                <option value="it">IT Engineering</option>
+                <option value="extc">Electronics Engineering</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="biotech">Biotechnology</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <span class="form-error-msg" id="pledgeDeptError" style="display: none;">Select department.</span>
+          </div>
+
+          <div class="form-group flex-1">
+            <label for="pledgeDivisionSelect" class="form-label">Division</label>
+            <div class="select-wrapper">
+              <select id="pledgeDivisionSelect" class="form-select" required>
+                <option value="" disabled selected>Division</option>
+                <option value="Div A">Div A</option>
+                <option value="Div B">Div B</option>
+                <option value="Div C">Div C</option>
+                <option value="Div D">Div D</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <span class="form-error-msg" id="pledgeDivError" style="display: none;">Select division.</span>
+          </div>
+        </div>
+
+        <div class="pledge-commit-box">
+          <label class="pledge-checkbox-label">
+            <input type="checkbox" id="pledgeCheckbox" required checked>
+            <span>I pledge to bring all end-of-life electronics, dead batteries, and obsolete cables to designated campus recycling bins.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitPledgeBtn" style="width: 100%; margin-top: 16px;">
+          <span>Submit Pledge & Unlock Badge</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal-backdrop" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle" style="display: none;">
+    <div class="modal-dialog modal-dialog-sm">
+      <div class="modal-header">
+        <h3 class="modal-title" id="resetModalTitle">Reset Demonstration Data?</h3>
+        <p class="modal-subtitle">This will restore the original baseline demonstration values and clear all logged drop-off activity from LocalStorage.</p>
+      </div>
+      <div class="modal-footer-btns">
+        <button type="button" class="btn btn-secondary" id="cancelResetBtn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmResetBtn">Yes, Reset Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canvas Confetti Engine -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- Footer (Matches Section 11 & Screenshot 1/3) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Column 1: Brand & Description -->
+      <div class="footer-col col-brand">
+        <div class="footer-brand">
+          <div class="footer-logo-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"></path>
+              <path d="M11 19h8.2a1.8 1.8 0 0 0 1.55-.89 1.8 1.8 0 0 0 0-1.77L16.8 9.5"></path>
+              <path d="M12.5 3a1.8 1.8 0 0 0-1.54.89l-4.7 8.11h9.48l-1.7-2.95"></path>
+            </svg>
+          </div>
+          <span class="footer-title">Green Campus Challenge</span>
+        </div>
+        <p class="footer-desc">
+          An interdepartmental race to keep electronics out of landfills. Collect responsibly, earn points, and claim the crown.
+        </p>
+      </div>
+
+      <!-- Column 2: Drop-Off Location -->
+      <div class="footer-col col-location">
+        <span class="footer-col-label">DROP-OFF POINT</span>
+        <div class="location-item">
+          <svg class="location-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <div class="location-text">
+            <strong>Main Building, Ground Floor</strong>
+            <span>E-Waste Bin Station</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Note / Disclaimer -->
+      <div class="footer-col col-note">
+        <span class="footer-col-label">NOTE</span>
+        <p class="note-text">
+          Department figures are fictional sample data for this prototype. Replace them with verified collection records before using the application for official reporting.
+        </p>
+        <div class="demo-reset-wrapper">
+          <button type="button" class="btn-text-reset" id="openResetModalBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+              <path d="M21 3v5h-5"></path>
+              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+              <path d="M8 16H3v5"></path>
+            </svg>
+            <span>Reset demo data</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright line -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span>© 2026 Green Campus Sustainability Initiative. All rights reserved.</span>
+        <span>Built with HTML5, CSS3, & Vanilla JS.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
